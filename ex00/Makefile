@@ -11,7 +11,7 @@ uniq = $(if $1,$(firstword $1) $(call uniq,$(filter-out $(firstword $1),$1)))
 
 # TODO: fill in here
 NAME	:= a.out
-SRCS	:= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS	:= main.cpp srcs/Animal.cpp srcs/Dog.cpp srcs/Cat.cpp srcs/WrongAnimal.cpp srcs/WrongCat.cpp
 TEST_CPP:=
 
 CXX		:= c++
@@ -57,7 +57,7 @@ norm: FORCE
 $(OBJDIRS):
 	mkdir -p $@
 
-$(OBJDIR)%.o: srcs/%.cpp
+$(OBJDIR)%.o: %.cpp
 	@printf "$(THIN)$(ITALIC)"
 	$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
 	@printf "$(END)"
