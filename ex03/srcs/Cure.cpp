@@ -2,21 +2,11 @@
 
 #include <iostream>
 
-Cure::Cure() : AMateria("cure")
-{
-  std::cout << "[Cure] constructor" << std::endl;
-}
-
-Cure::Cure(const Cure &copy)
-{
-  std::cout << "[Cure] copy constructor" << std::endl;
-  *this = copy;
-}
-Cure::~Cure() { std::cout << "[Cure] destructor" << std::endl; }
-
+Cure::Cure() : AMateria("cure") {}
+Cure::Cure(const Cure &copy) : AMateria("cure") { *this = copy; }
+Cure::~Cure() {}
 Cure &Cure::operator=(const Cure &other)
 {
-  std::cout << "[Cure] asignation operator" << std::endl;
   (void)other;
   return (*this);
 }
